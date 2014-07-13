@@ -9,7 +9,6 @@ and is actually compliant with the [kernel](https://github.com/mongodb/mongo/blo
 ## Todo
 
 - [ ] benchmark.js
-- [ ] EJSON.parse
 
 ## Example
 

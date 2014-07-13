@@ -26,7 +26,7 @@ describe('Inflate', function(){
   });
 
   it('converts `bson.Binary` to `{$binary: <base64 of buffer>}`', function(){
-    assert.deepEqual(inflate(bin), {$binary: 'AA=='});
+    assert.deepEqual(inflate(bin), {$binary: 'kA=='});
   });
 
   it('converts `bson.DBRef` to `{$ref: <namespace>, $id: <id>}`', function(){
