@@ -1,0 +1,27 @@
+{
+  "name": "mongodb-extended-json",
+  "description": "On spec MongoDB Extended JSON parse and stringify",
+  "version": "0.0.1",
+  "author": "Lucas Hrabovsky <hrabovsky.lucas@gmail.com> (http://imlucas.com)",
+  "license": "MIT",
+  "homepage": "http://github.com/imlucas/mongodb-extended-json",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/imlucas/mongodb-extended-json.git"
+  },
+  "keywords": [
+    "mongodb",
+    "mongodb.js",
+    "ejson"
+  ],
+  "scripts": {
+    "test": "mocha",
+    "ci": "mocha"
+  },
+  "dependencies": {
+    "bson": "^0.2.9"
+  },
+  "devDependencies": {
+    "mocha": "^1.20.1"
+  }
+}
