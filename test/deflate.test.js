@@ -1,5 +1,5 @@
 var assert = require('assert'),
-  deflate = require('../lib/deflate'),
+  deflate = require('../').deflate,
   bson = require('bson');
 
 describe('Defalte', function(){
@@ -16,8 +16,8 @@ describe('Defalte', function(){
   });
 
   it('converts `{$binary: <base64 of buffer>}` to `bson.Binary`', function(){
-    assert.equal(deflate({$binary: 'AA=='}).toString(),
-      bin.buffer.toString());
+    assert.equal(deflate({$binary: bin.buffer.toString('base64')}).toString('base64'),
+      bin.buffer.toString('base64'));
   });
 
   it('converts `{$ref: <namespace>, $id: <id>}` to `bson.DBRef`', function(){

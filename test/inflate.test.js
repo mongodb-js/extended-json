@@ -1,5 +1,5 @@
 var assert = require('assert'),
-  inflate = require('../lib/inflate'),
+  inflate = require('../').inflate,
   bson = require('bson');
 
 describe('Inflate', function(){
