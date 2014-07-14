@@ -2,13 +2,8 @@
 
 [![build status](https://secure.travis-ci.org/imlucas/mongodb-extended-json.png)](http://travis-ci.org/imlucas/mongodb-extended-json)
 
-[MongoDB Extended JSON](http://docs.mongodb.org/manual/reference/mongodb-extended-json/)
-parse and stringify that is friendly with [bson](http://github.com/mongodb/js-bson)
-and is actually compliant with the [kernel](https://github.com/mongodb/mongo/blob/master/src/mongo/db/json.cpp).
-
-## Todo
-
-- [ ] benchmark.js
+[MongoDB Extended JSON][ejson] parse and stringify that is friendly with
+[bson][bson] and is actually compliant with the [kernel][json_cpp].
 
 ## Example
 
@@ -37,3 +32,7 @@ EJSON.parse('{"_id":{"$oid":"53c2ab5e4291b17b666d742a"},"last_seen_at":{"$date":
 //   last_seen_at: Sun Jul 13 2014 11:53:02 GMT-0400 (EDT),
 //  display_name: undefined }
 ```
+
+[ejson]: http://docs.mongodb.org/manual/reference/mongodb-extended-json/
+[bson]: http://github.com/mongodb/js-bson
+[json_cpp]: https://github.com/mongodb/mongo/blob/master/src/mongo/db/json.cpp
