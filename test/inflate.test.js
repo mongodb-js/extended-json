@@ -1,5 +1,5 @@
 var assert = require('assert'),
-  inflate = require('../').inflate,
+  inflate = require('../lib/inflate'),
   bson = require('bson');
 
 describe('Inflate', function(){
@@ -26,7 +26,7 @@ describe('Inflate', function(){
   });
 
   it('converts `bson.Binary` to `{$binary: <base64 of buffer>}`', function(){
-    assert.deepEqual(inflate(bin), {$binary: 'kA=='});
+    assert.deepEqual(inflate(bin), {$binary: bin.buffer.toString('base64')});
   });
 
   it('converts `bson.DBRef` to `{$ref: <namespace>, $id: <id>}`', function(){

@@ -1,5 +1,5 @@
 var assert = require('assert'),
-  deflate = require('../').deflate,
+  deflate = require('../lib/deflate'),
   bson = require('bson');
 
 describe('Defalte', function(){
