@@ -51,4 +51,9 @@ describe('Defalte', function(){
   it('converts `{$undefined: true}` to `undefined`', function(){
     assert.deepEqual(deflate({$undefined: true}), undefined);
   });
+
+  it('DOCS-3879: converts `{$date: <iso string>}` to a proper date', function(){
+    assert.equal(deflate({$date: "2014-08-25T17:49:42.288-0400"}).toUTCString(),
+      'Mon, 25 Aug 2014 21:49:42 GMT');
+  });
 });
