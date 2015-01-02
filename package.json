@@ -20,10 +20,10 @@
   },
   "dependencies": {
     "JSONStream": "~0.10.0",
-    "bson": "^0.2.11",
+    "bson": "~0.2.16",
     "event-stream": "~3.2.1"
   },
   "devDependencies": {
-    "mocha": "^1.21.4"
+    "mocha": "~2.1.0"
   }
 }
