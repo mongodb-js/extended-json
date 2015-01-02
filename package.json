@@ -19,7 +19,9 @@
     "ci": "mocha"
   },
   "dependencies": {
-    "bson": "^0.2.11"
+    "JSONStream": "~0.10.0",
+    "bson": "^0.2.11",
+    "event-stream": "~3.2.1"
   },
   "devDependencies": {
     "mocha": "^1.21.4"
