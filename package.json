@@ -4,10 +4,10 @@
   "version": "1.1.2",
   "author": "Lucas Hrabovsky <hrabovsky.lucas@gmail.com> (http://imlucas.com)",
   "license": "MIT",
-  "homepage": "http://github.com/imlucas/mongodb-extended-json",
+  "homepage": "http://github.com/mongodb-js/extended-json",
   "repository": {
     "type": "git",
-    "url": "git://github.com/imlucas/mongodb-extended-json.git"
+    "url": "git://github.com/mongodb-js/extended-json.git"
   },
   "keywords": [
     "mongodb",
