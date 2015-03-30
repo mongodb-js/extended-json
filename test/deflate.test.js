@@ -8,7 +8,15 @@ describe('Defalte', function(){
     ref = bson.DBRef('local.startup_log', _id);
 
   it('converts `{$numberLong: <str>}` to `bson.Long`', function(){
-    assert(deflate({$numberLong: 10}).equals(bson.Long.fromNumber(10)));
+    assert(deflate({$numberLong: "10"}).equals(bson.Long.fromString("10")));
+  });
+
+  it('converts `{$numberLong: <str>}` to `bson.Long` (between 2^32 and 2^53)', function(){
+    assert(deflate({$numberLong: "4294967297"}).equals(bson.Long.fromString("4294967297")));
+  });
+
+  it('converts `{$numberLong: <str>}` to `bson.Long` (greater than 2^53)', function(){
+    assert(deflate({$numberLong: "18014398509481984"}).equals(bson.Long.fromString("18014398509481984")));
   });
 
   it('converts `{$oid: <_id>}` to `bson.ObjectId`', function(){
