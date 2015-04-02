@@ -1,6 +1,6 @@
-# mongodb-extended-json
+﻿# mongodb-extended-json
 
-[![build status](https://secure.travis-ci.org/imlucas/mongodb-extended-json.png)](http://travis-ci.org/imlucas/mongodb-extended-json)
+[![build status](https://secure.travis-ci.org/mongodb-js/extended-json.png)](http://travis-ci.org/mongodb-js/extended-json)
 
 [MongoDB Extended JSON][ejson] parse and stringify that is friendly with
 [bson][bson] and is actually compliant with the [kernel][json_cpp].
