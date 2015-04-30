@@ -75,6 +75,13 @@ describe('Defalte', function() {
     }), d);
   });
 
+  it('converts `{$date: <ISO-8601>}` to `Date`', function() {
+    var d = new Date();
+    assert.deepEqual(deflate({
+      $date: d.toISOString()
+    }), d);
+  });
+
   it('converts `{$regex: <pattern>, $options: <flags>}` to `RegExp`', function() {
     assert.deepEqual(deflate({
       $regex: 'mongodb.com$',

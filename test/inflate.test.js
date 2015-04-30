@@ -79,10 +79,10 @@ describe('Inflate', function() {
     });
   });
 
-  it('converts `Date` to `{$date: <ms>}`', function() {
+  it('converts `Date` to `{$date: <ISO-8601>}`', function() {
     var d = new Date();
     assert.deepEqual(inflate(d), {
-      $date: d.getTime()
+      $date: d.toISOString()
     });
   });
 
