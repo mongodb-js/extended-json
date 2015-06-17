@@ -1,7 +1,7 @@
 {
   "name": "mongodb-extended-json",
   "description": "On spec MongoDB Extended JSON parse and stringify",
-  "version": "1.3.0",
+  "version": "1.3.1",
   "author": "Lucas Hrabovsky <hrabovsky.lucas@gmail.com> (http://imlucas.com)",
   "license": "MIT",
   "homepage": "http://github.com/mongodb-js/extended-json",
@@ -20,7 +20,7 @@
   },
   "dependencies": {
     "JSONStream": "~0.10.0",
-    "bson": "~0.2.16",
+    "bson": "~0.4",
     "event-stream": "~3.2.1"
   },
   "devDependencies": {
