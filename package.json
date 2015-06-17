@@ -20,7 +20,7 @@
   },
   "dependencies": {
     "JSONStream": "~0.10.0",
-    "bson": "~0.2.16",
+    "bson": "~0.4",
     "event-stream": "~3.2.1"
   },
   "devDependencies": {
