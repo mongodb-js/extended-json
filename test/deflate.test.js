@@ -1,28 +1,29 @@
-var assert = require('assert'),
-  deflate = require('../').deflate,
-  bson = require('bson');
+var assert = require('assert');
+var deflate = require('../').deflate;
+var bson = require('bson');
 
-describe('Defalte', function() {
-  var _id = bson.ObjectID(),
-    bin = bson.Binary(new Buffer(1)),
-    ref = bson.DBRef('local.startup_log', _id);
+/*eslint new-cap:0*/
+describe('Deflate', function() {
+  var _id = bson.ObjectID();
+  var bin = bson.Binary(new Buffer(1));
+  var ref = bson.DBRef('local.startup_log', _id);
 
   it('converts `{$numberLong: <str>}` to `bson.Long`', function() {
     assert(deflate({
-      $numberLong: "10"
-    }).equals(bson.Long.fromString("10")));
+      $numberLong: '10'
+    }).equals(bson.Long.fromString('10')));
   });
 
   it('converts `{$numberLong: <str>}` to `bson.Long` (between 2^32 and 2^53)', function() {
     assert(deflate({
-      $numberLong: "4294967297"
-    }).equals(bson.Long.fromString("4294967297")));
+      $numberLong: '4294967297'
+    }).equals(bson.Long.fromString('4294967297')));
   });
 
   it('converts `{$numberLong: <str>}` to `bson.Long` (greater than 2^53)', function() {
     assert(deflate({
-      $numberLong: "18014398509481984"
-    }).equals(bson.Long.fromString("18014398509481984")));
+      $numberLong: '18014398509481984'
+    }).equals(bson.Long.fromString('18014398509481984')));
   });
 
   it('converts `{$oid: <_id>}` to `bson.ObjectId`', function() {
@@ -35,16 +36,16 @@ describe('Defalte', function() {
     assert.equal(deflate({
       $binary: bin.buffer.toString('base64')
     }).toString('base64'),
-    bin.buffer.toString('base64'));
+      bin.buffer.toString('base64'));
   });
 
   it('converts `{$ref: <namespace>, $id: <id>}` to `bson.DBRef`', function() {
     assert.deepEqual(
-    deflate({
-      $ref: 'local.startup_log',
-      $id: _id.toString()
-    }).toString(),
-    ref.toString());
+      deflate({
+        $ref: 'local.startup_log',
+        $id: _id.toString()
+      }).toString(),
+      ref.toString());
   });
 
   it('converts `{$timestamp: {$t: <low_>, $i: <high_>}` to `bson.Timestamp`', function() {
@@ -87,7 +88,7 @@ describe('Defalte', function() {
       $regex: 'mongodb.com$',
       $options: 'g'
     }).toString(),
-    '/mongodb.com$/g');
+      '/mongodb.com$/g');
   });
 
   it('converts `{$undefined: true}` to `undefined`', function() {
@@ -98,8 +99,8 @@ describe('Defalte', function() {
 
   it('DOCS-3879: converts `{$date: <iso string>}` to a proper date', function() {
     assert.equal(deflate({
-      $date: "2014-08-25T17:49:42.288-0400"
+      $date: '2014-08-25T17:49:42.288-0400'
     }).toUTCString(),
-    'Mon, 25 Aug 2014 21:49:42 GMT');
+      'Mon, 25 Aug 2014 21:49:42 GMT');
   });
 });

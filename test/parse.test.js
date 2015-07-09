@@ -1,7 +1,8 @@
-var assert = require('assert'),
-  parse = require('../').parse,
-  bson = require('bson');
+var assert = require('assert');
+var parse = require('../').parse;
+var bson = require('bson');
 
+/*eslint new-cap:0*/
 describe('Parse', function() {
   it('should work', function() {
     assert.deepEqual(parse('{"_id":{"$oid":"53c2b570c15c457669f481f7"}}'), {

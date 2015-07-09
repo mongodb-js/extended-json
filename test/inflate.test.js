@@ -1,11 +1,12 @@
-var assert = require('assert'),
-  inflate = require('../').inflate,
-  bson = require('bson');
+var assert = require('assert');
+var inflate = require('../').inflate;
+var bson = require('bson');
 
+/*eslint new-cap:0*/
 describe('Inflate', function() {
-  var _id = bson.ObjectID(),
-    bin = bson.Binary(new Buffer(1)),
-    ref = bson.DBRef('local.startup_log', _id);
+  var _id = bson.ObjectID();
+  var bin = bson.Binary(new Buffer(1));
+  var ref = bson.DBRef('local.startup_log', _id);
 
   it('is a passthrough for primitive types', function() {
     assert.equal(inflate('bson'), 'bson');
@@ -22,20 +23,20 @@ describe('Inflate', function() {
   });
 
   it('converts `bson.Long` to `{$numberLong: <str>}`', function() {
-    assert.deepEqual(inflate(bson.Long.fromString("10")), {
-      $numberLong: "10"
+    assert.deepEqual(inflate(bson.Long.fromString('10')), {
+      $numberLong: '10'
     });
   });
 
   it('converts `bson.Long` to `{$numberLong: <str>}` (between 2^32 and 2^53)', function() {
-    assert.deepEqual(inflate(bson.Long.fromString("4294967297")), {
-      $numberLong: "4294967297"
+    assert.deepEqual(inflate(bson.Long.fromString('4294967297')), {
+      $numberLong: '4294967297'
     });
   });
 
   it('converts `bson.Long` to `{$numberLong: <str>}` (greater than 2^53)', function() {
-    assert.deepEqual(inflate(bson.Long.fromString("18014398509481984")), {
-      $numberLong: "18014398509481984"
+    assert.deepEqual(inflate(bson.Long.fromString('18014398509481984')), {
+      $numberLong: '18014398509481984'
     });
   });
 
@@ -88,10 +89,10 @@ describe('Inflate', function() {
 
   it('converts `RegExp` to `{$regex: <pattern>, $options: <flags>}`', function() {
     assert.deepEqual(inflate(/mongodb.com$/g),
-    {
-      $regex: 'mongodb.com$',
-      $options: 'g'
-    });
+      {
+        $regex: 'mongodb.com$',
+        $options: 'g'
+      });
   });
 
   it('converts `undefined` to `{$undefined: true}`', function() {

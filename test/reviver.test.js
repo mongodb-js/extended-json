@@ -1,31 +1,32 @@
-var assert = require('assert'),
-  EJSON = require('../'),
-  bson = require('bson');
+var assert = require('assert');
+var EJSON = require('../');
+var bson = require('bson');
 
+/*eslint new-cap:0*/
 describe('Reviver', function() {
-  var _id = bson.ObjectID(),
-    user_id = bson.ObjectID(),
-    bin = bson.Binary(new Buffer(1));
+  var _id = bson.ObjectID();
+  var user_id = bson.ObjectID();
+  var bin = bson.Binary(new Buffer(1));
 
   var text = EJSON.stringify({
-      _id: _id,
-      download_count: bson.Long.fromNumber(10),
-      tarball: bin,
-      maintainer: bson.DBRef('npm.user', user_id),
-      versions: [
-        {
-          _id: bson.ObjectID(),
-          tag: 'v0.0.2',
-          created_on: new Date()
-        },
-        {
-          _id: bson.ObjectID(),
-          tag: 'v0.0.3',
-          created_on: new Date()
-        }
-      ]
-    }),
-    data = JSON.parse(text, EJSON.reviver);
+    _id: _id,
+    download_count: bson.Long.fromNumber(10),
+    tarball: bin,
+    maintainer: bson.DBRef('npm.user', user_id),
+    versions: [
+      {
+        _id: bson.ObjectID(),
+        tag: 'v0.0.2',
+        created_on: new Date()
+      },
+      {
+        _id: bson.ObjectID(),
+        tag: 'v0.0.3',
+        created_on: new Date()
+      }
+    ]
+  });
+  var data = JSON.parse(text, EJSON.reviver);
 
   it('should revive `{$numberLong: <str>}` to `bson.Long`', function() {
     assert(data.download_count.equals(bson.Long.fromNumber(10)));
@@ -37,12 +38,12 @@ describe('Reviver', function() {
 
   it('should revive `{$binary: <base64 of buffer>}` to `bson.Binary`', function() {
     assert.equal(data.tarball.buffer.toString('base64'),
-    bin.buffer.toString('base64'));
+      bin.buffer.toString('base64'));
   });
 
   it('should revive `{$ref: <namespace>, $id: <id>}` to `bson.DBRef`', function() {
     assert.deepEqual(data.maintainer.toString(),
-    bson.DBRef('npm.user', user_id).toString());
+      bson.DBRef('npm.user', user_id).toString());
   });
 
   it('should revive embedded documents', function() {

@@ -1,12 +1,11 @@
-var assert = require('assert'),
-  stringify = require('../').stringify,
-  parse = require('../').parse,
-  createStringifyStream = require('../').createStringifyStream,
-  createParseStream = require('../').createParseStream,
-  bson = require('bson'),
-  fs = require('fs'),
-  os = require('os'),
-  es = require('event-stream');
+var assert = require('assert');
+var stringify = require('../').stringify;
+var parse = require('../').parse;
+var createStringifyStream = require('../').createStringifyStream;
+var createParseStream = require('../').createParseStream;
+var bson = require('bson');
+var fs = require('fs');
+var os = require('os');
 
 var util = require('util');
 var Readable = require('stream').Readable;
@@ -26,6 +25,7 @@ DocsStream.prototype._read = function() {
   this.push(null);
 };
 
+/*eslint new-cap:0*/
 describe('Stringify', function() {
   it('should work', function() {
     var doc = {
@@ -47,25 +47,25 @@ describe('Stringify', function() {
     });
     it('should support stringify', function(done) {
       new DocsStream(docs)
-      .pipe(createStringifyStream())
-      .pipe(fs.createWriteStream(dest))
-      .on('finish', function() {
-        fs.readFile(dest, function(err, buf) {
-          if (err) return done(err);
+        .pipe(createStringifyStream())
+        .pipe(fs.createWriteStream(dest))
+        .on('finish', function() {
+          fs.readFile(dest, function(err, buf) {
+            if (err) return done(err);
 
-          var data = parse(buf);
-          assert.deepEqual(data, docs);
-          done();
+            var data = parse(buf);
+            assert.deepEqual(data, docs);
+            done();
+          });
         });
-      });
     });
 
     it('should support parse', function(done) {
       fs.createReadStream(dest)
-      .pipe(createParseStream('*'))
-      .on('end', function() {
-        done();
-      });
+        .pipe(createParseStream('*'))
+        .on('end', function() {
+          done();
+        });
     });
   });
 });
