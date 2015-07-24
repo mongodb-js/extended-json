@@ -9,4 +9,8 @@ describe('Parse', function() {
       _id: bson.ObjectID('53c2b570c15c457669f481f7')
     });
   });
+
+  it('should throw an error when using an unknown mode', function() {
+    assert.throws(parse('{"a": 1}', 'invalid_mode'), Error);
+  });
 });
