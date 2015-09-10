@@ -44,6 +44,7 @@
     "istanbul": "^0.3.19",
     "mocha": "~2.3.2",
     "mongodb-js-precommit": "^0.1.4",
+    "mongodb-schema": "github:mongodb-js/mongodb-schema",
     "pre-commit": "^1.1.1"
   }
 }
