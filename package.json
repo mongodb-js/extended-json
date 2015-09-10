@@ -9,6 +9,11 @@
     "type": "git",
     "url": "git://github.com/mongodb-js/extended-json.git"
   },
+  "check": {
+    "ignore": [
+      "coverage/**/*"
+    ]
+  },
   "keywords": [
     "mongodb",
     "mongodb.js",
@@ -17,24 +22,28 @@
   "scripts": {
     "test": "mocha",
     "ci": "mocha",
-    "check": "mongodb-js-precommit"
+    "check": "mongodb-js-precommit",
+    "coverage": "./node_modules/istanbul/lib/cli.js cover _mocha -- -R spec ./test/*.test.js"
   },
   "precommit": [
     "check"
   ],
   "dependencies": {
     "JSONStream": "~1.0.4",
-    "async": "^1.3.0",
-    "bson": "~0.4.6",
+    "async": "^1.4.2",
+    "bson": "~0.4.11",
     "event-stream": "~3.3.1",
-    "raf": "^3.0.0",
-    "moment": "^2.10.3"
+    "lodash.isfunction": "^3.0.6",
+    "lodash.reduce": "^3.1.2",
+    "moment": "^2.10.6",
+    "raf": "^3.1.0"
   },
   "devDependencies": {
     "debug": "^2.2.0",
-    "eslint-config-mongodb-js": "^0.1.4",
-    "mocha": "~2.2.5",
-    "mongodb-js-precommit": "^0.1.2",
-    "pre-commit": "^1.0.10"
+    "eslint-config-mongodb-js": "^0.1.5",
+    "istanbul": "^0.3.19",
+    "mocha": "~2.3.2",
+    "mongodb-js-precommit": "^0.1.4",
+    "pre-commit": "^1.1.1"
   }
 }

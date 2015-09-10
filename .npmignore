@@ -1,3 +1,6 @@
+coverage/
 test/
-.jshintrc
+.coveralls.yml
+.eslintrc
+.jsfmtrc
 .travis.yml

@@ -51,7 +51,9 @@ describe('Stringify', function() {
         .pipe(fs.createWriteStream(dest))
         .on('finish', function() {
           fs.readFile(dest, function(err, buf) {
-            if (err) return done(err);
+            if (err) {
+              return done(err);
+            }
 
             var data = parse(buf);
             assert.deepEqual(data, docs);
