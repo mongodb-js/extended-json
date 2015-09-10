@@ -11,6 +11,8 @@ describe('Parse', function() {
   });
 
   it('should throw an error when using an unknown mode', function() {
-    assert.throws(parse('{"a": 1}', 'invalid_mode'), Error);
+    assert.throws(function() {
+      parse('{"a": 1}', 'invalid_mode');
+    }, Error);
   });
 });
