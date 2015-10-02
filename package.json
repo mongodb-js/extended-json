@@ -1,7 +1,7 @@
 {
   "name": "mongodb-extended-json",
   "description": "On spec MongoDB Extended JSON parse and stringify",
-  "version": "1.5.1",
+  "version": "1.5.2",
   "author": "Lucas Hrabovsky <hrabovsky.lucas@gmail.com> (http://imlucas.com)",
   "license": "Apache-2.0",
   "homepage": "http://github.com/mongodb-js/extended-json",
