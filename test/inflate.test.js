@@ -48,7 +48,8 @@ describe('Inflate', function() {
 
   it('converts `bson.Binary` to `{$binary: <base64 of buffer>}`', function() {
     assert.deepEqual(inflate(bin), {
-      $binary: bin.buffer.toString('base64')
+      $binary: bin.buffer.toString('base64'),
+      $type: '0'
     });
   });
 
