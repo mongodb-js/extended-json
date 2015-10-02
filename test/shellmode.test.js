@@ -4,7 +4,7 @@ var parse = require('../').parse;
 var bson = require('bson');
 
 
-/*eslint new-cap:0*/
+/* eslint new-cap:0 */
 describe('Parse from shell mode', function() {
   it('should work on a simple example with ObjectId', function() {
     assert.deepEqual(parse('{"_id": ObjectId("53c2b570c15c457669f481f7") }', null, 'shell'), {

@@ -2,7 +2,7 @@ var assert = require('assert');
 var inflate = require('../').inflate;
 var bson = require('bson');
 
-/*eslint new-cap:0*/
+/* eslint new-cap:0 */
 describe('Inflate', function() {
   var _id = bson.ObjectID();
   var bin = bson.Binary(new Buffer(1));

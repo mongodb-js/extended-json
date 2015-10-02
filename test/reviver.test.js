@@ -2,7 +2,7 @@ var assert = require('assert');
 var EJSON = require('../');
 var bson = require('bson');
 
-/*eslint new-cap:0*/
+/* eslint new-cap:0 */
 describe('Reviver', function() {
   var _id = bson.ObjectID();
   var user_id = bson.ObjectID();

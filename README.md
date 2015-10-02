@@ -1,9 +1,7 @@
-﻿# mongodb-extended-json
+﻿# mongodb-extended-json [![][npm_img]][npm_url] [![][travis_img]][travis_url] [![][coverage_img]][coverage_url] [![][gitter_img]][gitter_url]
 
-[![build status](https://secure.travis-ci.org/mongodb-js/extended-json.png)](http://travis-ci.org/mongodb-js/extended-json)
-
-[MongoDB Extended JSON][ejson] parse and stringify that is friendly with
-[bson][bson] and is actually compliant with the [kernel][json_cpp].
+> [MongoDB Extended JSON][ejson] parse and stringify that is friendly with
+> [bson][bson] and is actually compliant with the [kernel][json_cpp].
 
 ## Example
 
@@ -68,3 +66,11 @@ request.get(url)
 [ejson]: http://docs.mongodb.org/manual/reference/mongodb-extended-json/
 [bson]: http://github.com/mongodb/js-bson
 [json_cpp]: https://github.com/mongodb/mongo/blob/master/src/mongo/db/json.cpp
+[travis_img]: https://secure.travis-ci.org/mongodb-js/extended-json.svg?branch=master
+[travis_url]: https://travis-ci.org/mongodb-js/extended-json
+[npm_img]: https://img.shields.io/npm/v/mongodb-extended-json.svg
+[npm_url]: https://www.npmjs.org/package/mongodb-extended-json
+[coverage_img]: https://coveralls.io/repos/mongodb-js/extended-json/badge.svg
+[coverage_url]: https://coveralls.io/r/mongodb-js/extended-json
+[gitter_img]: https://badges.gitter.im/Join%20Chat.svg
+[gitter_url]: https://gitter.im/mongodb-js/mongodb-js

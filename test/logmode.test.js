@@ -3,7 +3,7 @@ var logToStrict = require('../lib/modes/log.js').toStrict;
 var parse = require('../').parse;
 var bson = require('bson');
 
-/*eslint new-cap:0*/
+/* eslint new-cap:0 */
 describe('Parse from log mode', function() {
   it('should work on a simple example with ObjectId', function() {
     assert.deepEqual(parse('{"_id": ObjectId(\'53c2b570c15c457669f481f7\') }', null, 'log'), {
@@ -18,7 +18,7 @@ describe('Parse from log mode', function() {
   });
 });
 
-/*eslint new-cap:0*/
+/\* eslint new-cap:0 \*/;
 describe('Log mode -> Strict mode', function() {
   it('should replace ObjectId', function() {
     var s = logToStrict('{ oid: ObjectId(\'87654f73c737a19e1d112233\') }');

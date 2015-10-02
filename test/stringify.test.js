@@ -25,7 +25,7 @@ DocsStream.prototype._read = function() {
   this.push(null);
 };
 
-/*eslint new-cap:0*/
+/* eslint new-cap:0 */
 describe('Stringify', function() {
   it('should work', function() {
     var doc = {
