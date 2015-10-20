@@ -5,7 +5,7 @@ var bson = require('bson');
 /* eslint new-cap:0 */
 describe('Reviver', function() {
   var _id = bson.ObjectID();
-  var user_id = bson.ObjectID();
+  var userId = bson.ObjectID();
   var bin = bson.Binary(new Buffer(1));
 
   var text;
@@ -16,7 +16,7 @@ describe('Reviver', function() {
       _id: _id,
       download_count: bson.Long.fromNumber(10),
       tarball: bin,
-      maintainer: bson.DBRef('npm.user', user_id),
+      maintainer: bson.DBRef('npm.user', userId),
       versions: [
         {
           _id: bson.ObjectID(),
@@ -48,7 +48,7 @@ describe('Reviver', function() {
 
   it('should revive `{$ref: <namespace>, $id: <id>}` to `bson.DBRef`', function() {
     assert.deepEqual(data.maintainer.toString(),
-      bson.DBRef('npm.user', user_id).toString());
+      bson.DBRef('npm.user', userId).toString());
   });
 
   it('should revive embedded documents', function() {
