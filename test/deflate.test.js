@@ -7,6 +7,7 @@ describe('Deflate', function() {
   var _id = bson.ObjectID();
   var bin = bson.Binary(new Buffer(1));
   var ref = bson.DBRef('local.startup_log', _id);
+  var refStringId = bson.DBRef('local.startup_log', _id.toString());
 
   it('converts `{$numberLong: <str>}` to `bson.Long`', function() {
     assert(deflate({
@@ -39,11 +40,20 @@ describe('Deflate', function() {
       bin.buffer.toString('base64'));
   });
 
-  it('converts `{$ref: <namespace>, $id: <id>}` to `bson.DBRef`', function() {
+  it('converts `{$ref: <namespace>, $id: <string>}` to `bson.DBRef`', function() {
     assert.deepEqual(
       deflate({
         $ref: 'local.startup_log',
         $id: _id.toString()
+      }).toString(),
+      refStringId.toString());
+  });
+
+  it('converts `{$ref: <namespace>, $id: <ObjectID>}` to `bson.DBRef`', function() {
+    assert.deepEqual(
+      deflate({
+        $ref: 'local.startup_log',
+        $id: {$oid: _id.toString()}
       }).toString(),
       ref.toString());
   });

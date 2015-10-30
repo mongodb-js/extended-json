@@ -7,6 +7,7 @@ describe('Inflate', function() {
   var _id = bson.ObjectID();
   var bin = bson.Binary(new Buffer(1));
   var ref = bson.DBRef('local.startup_log', _id);
+  var refStringId = bson.DBRef('local.startup_log', _id.toString());
 
   it('is a passthrough for primitive types', function() {
     assert.equal(inflate('bson'), 'bson');
@@ -53,10 +54,17 @@ describe('Inflate', function() {
     });
   });
 
-  it('converts `bson.DBRef` to `{$ref: <namespace>, $id: <id>}`', function() {
-    assert.deepEqual(inflate(ref), {
+  it('converts `bson.DBRef` to `{$ref: <namespace>, $id: <string>}`', function() {
+    assert.deepEqual(inflate(refStringId), {
       $ref: 'local.startup_log',
       $id: _id.toString()
+    });
+  });
+
+  it('converts `bson.DBRef` to `{$ref: <namespace>, $id: <ObjectID>}`', function() {
+    assert.deepEqual(inflate(ref), {
+      $ref: 'local.startup_log',
+      $id: {$oid: _id.toString()}
     });
   });
 
