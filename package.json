@@ -1,7 +1,7 @@
 {
   "name": "mongodb-extended-json",
   "description": "On spec MongoDB Extended JSON parse and stringify",
-  "version": "1.5.3",
+  "version": "1.5.4",
   "author": "Lucas Hrabovsky <hrabovsky.lucas@gmail.com> (http://imlucas.com)",
   "license": "Apache-2.0",
   "homepage": "http://github.com/mongodb-js/extended-json",
@@ -44,6 +44,7 @@
     "eslint-config-mongodb-js": "^1.0.3",
     "istanbul": "^0.4.0",
     "mocha": "~2.3.3",
+    "mongodb-js-fmt": "^0.0.3",
     "mongodb-js-precommit": "^0.2.2",
     "mongodb-schema": "github:mongodb-js/mongodb-schema",
     "pre-commit": "^1.1.1"
