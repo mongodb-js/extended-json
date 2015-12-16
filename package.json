@@ -33,6 +33,7 @@
     "JSONStream": "~1.0.6",
     "async": "^1.4.2",
     "bson": "~0.4.12",
+    "deprecate": "^0.1.0",
     "event-stream": "~3.3.1",
     "lodash.isfunction": "^3.0.6",
     "lodash.transform": "^3.0.4",
