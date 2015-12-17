@@ -1,4 +1,4 @@
-﻿# mongodb-extended-json [![][npm_img]][npm_url] [![][travis_img]][travis_url] [![][coverage_img]][coverage_url] [![][gitter_img]][gitter_url]
+﻿# mongodb-extended-json [![][npm_img]][npm_url] [![][travis_img]][travis_url] [![][coverage_img]][coverage_url] [![slack][slack_img]][slack_url]
 
 > [MongoDB Extended JSON][ejson] parse and stringify that is friendly with
 > [bson][bson] and is actually compliant with the [kernel][json_cpp].
@@ -72,5 +72,5 @@ request.get(url)
 [npm_url]: https://www.npmjs.org/package/mongodb-extended-json
 [coverage_img]: https://coveralls.io/repos/mongodb-js/extended-json/badge.svg
 [coverage_url]: https://coveralls.io/r/mongodb-js/extended-json
-[gitter_img]: https://badges.gitter.im/Join%20Chat.svg
-[gitter_url]: https://gitter.im/mongodb-js/mongodb-js
+[slack_url]: https://slack.mongodb.parts/
+[slack_img]: https://slack.mongodb.parts/badge.svg
