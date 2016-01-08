@@ -68,11 +68,11 @@ describe('Serialize', function() {
     });
   });
 
-  it('converts `bson.Timestamp` to `{$timestamp: {$t: <low_>, $i: <high_>}`', function() {
+  it('converts `bson.Timestamp` to `{$timestamp: {t: <low_>, i: <high_>}`', function() {
     assert.deepEqual(serialize(bson.Timestamp()), {
       $timestamp: {
-        $t: 0,
-        $i: 0
+        t: 0,
+        i: 0
       }
     });
   });
