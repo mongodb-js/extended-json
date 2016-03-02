@@ -30,7 +30,7 @@
     "check"
   ],
   "dependencies": {
-    "JSONStream": "~1.0.6",
+    "JSONStream": "~1.1.1",
     "async": "^1.4.2",
     "bson": "~0.4.12",
     "event-stream": "~3.3.1",
