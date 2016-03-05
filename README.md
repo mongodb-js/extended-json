@@ -1,7 +1,6 @@
-﻿# mongodb-extended-json [![][npm_img]][npm_url] [![][travis_img]][travis_url] 
+﻿# mongodb-extended-json [![][npm_img]][npm_url] [![][travis_img]][travis_url]
 
-> [MongoDB Extended JSON][ejson] parse and stringify that is friendly with
-> [bson][bson] and is actually compliant with the [kernel][json_cpp].
+> [MongoDB Extended JSON][ejson].
 
 ## Example
 

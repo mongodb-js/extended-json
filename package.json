@@ -1,6 +1,6 @@
 {
   "name": "mongodb-extended-json",
-  "description": "On spec MongoDB Extended JSON parse and stringify",
+  "description": "MongoDB Extended JSON.",
   "version": "1.6.2",
   "author": "Lucas Hrabovsky <hrabovsky.lucas@gmail.com> (http://imlucas.com)",
   "license": "Apache-2.0",
@@ -9,31 +9,27 @@
     "type": "git",
     "url": "git://github.com/mongodb-js/extended-json.git"
   },
-  "check": {
-    "ignore": [
-      "coverage/**/*"
-    ]
-  },
   "keywords": [
     "mongodb",
-    "mongodb.js",
-    "ejson"
+    "mongodb-js",
+    "ejson",
+    "bson",
+    "extended-json"
   ],
   "scripts": {
-    "fmt": "mongodb-js-fmt lib/{*/**.js,*.js} test/{*.js}",
+    "fmt": "mongodb-js-fmt",
     "test": "mocha",
-    "ci": "npm run check && npm run coverage",
-    "check": "mongodb-js-precommit",
-    "coverage": "./node_modules/istanbul/lib/cli.js cover _mocha -- -R spec ./test/*.test.js"
+    "ci": "npm run check",
+    "check": "mongodb-js-precommit"
   },
   "precommit": [
     "check"
   ],
   "dependencies": {
-    "JSONStream": "~1.1.1",
+    "JSONStream": "^1.1.1",
     "async": "^1.4.2",
-    "bson": "~0.4.12",
-    "event-stream": "~3.3.1",
+    "bson": "^0.4.22",
+    "event-stream": "^3.3.1",
     "lodash.isfunction": "^3.0.6",
     "lodash.transform": "^3.0.4",
     "moment": "^2.10.6",
@@ -42,11 +38,10 @@
   "devDependencies": {
     "debug": "^2.2.0",
     "eslint-config-mongodb-js": "^1.0.3",
-    "istanbul": "^0.4.0",
     "mocha": "~2.4.5",
     "mongodb-js-fmt": "^0.0.3",
     "mongodb-js-precommit": "^0.2.2",
-    "mongodb-schema": "github:mongodb-js/mongodb-schema",
+    "mongodb-schema": "^4.0.0",
     "pre-commit": "^1.1.1"
   }
 }
