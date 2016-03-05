@@ -64,7 +64,9 @@ describe('Serialize', function() {
   it('converts `bson.DBRef` to `{$ref: <namespace>, $id: <ObjectID>}`', function() {
     assert.deepEqual(serialize(ref), {
       $ref: 'local.startup_log',
-      $id: {$oid: _id.toString()}
+      $id: {
+        $oid: _id.toString()
+      }
     });
   });
 

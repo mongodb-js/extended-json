@@ -53,7 +53,9 @@ describe('Deserialize', function() {
     assert.deepEqual(
       deserialize({
         $ref: 'local.startup_log',
-        $id: {$oid: _id.toString()}
+        $id: {
+          $oid: _id.toString()
+        }
       }).toString(),
       ref.toString());
   });
