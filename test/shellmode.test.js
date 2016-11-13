@@ -80,8 +80,18 @@ describe('Shell mode -> Strict mode', function() {
     assert.equal(s, '{ "bin": { "$binary": "SGVsbG8gV29ybGQ=", "$type": "0" } }');
   });
 
-  it('should replace NumberLong', function() {
+  it('should replace NumberLong without quotes', function() {
     var s = shellToStrict('{ "long": NumberLong(9223372036854775807) }');
     assert.equal(s, '{ "long": { "$numberLong": "9223372036854775807" } }');
+  });
+
+  it('should replace NumberLong with quotes', function() {
+    var s = shellToStrict('{ "long": NumberLong("9223372036854775807") }');
+    assert.equal(s, '{ "long": { "$numberLong": "9223372036854775807" } }');
+  });
+
+  it('should replace NumberDecimal', function() {
+    var s = shellToStrict('{ "decimal": NumberDecimal("123.456") }');
+    assert.equal(s, '{ "decimal": { "$numberDecimal": "123.456" } }');
   });
 });

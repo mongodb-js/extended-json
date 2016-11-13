@@ -22,9 +22,18 @@ describe('Deserialize', function() {
   });
 
   it('converts `{$numberLong: <str>}` to `bson.Long` (greater than 2^53)', function() {
+    assert.ok(deserialize({$numberLong: '1234567903'}) instanceof bson.Long);
     assert(deserialize({
       $numberLong: '18014398509481984'
     }).equals(bson.Long.fromString('18014398509481984')));
+  });
+
+  it('converts `{$numberDecimal: <str>}` to `bson.Decimal128`', function() {
+    assert.ok(deserialize({$numberDecimal: '1234.567'}) instanceof bson.Decimal128);
+    assert.equal(
+      deserialize({$numberDecimal: '1234.567'}).toString(),
+      bson.Decimal128.fromString('1234.567').toString()
+    );
   });
 
   it('converts `{$oid: <_id>}` to `bson.ObjectId`', function() {

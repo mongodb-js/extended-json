@@ -41,6 +41,12 @@ describe('Serialize', function() {
     });
   });
 
+  it('converts `bson.Decimal128` to `{$numberDecimal: <str>}`', function() {
+    assert.deepEqual(serialize(bson.Decimal128.fromString('1234.567')), {
+      $numberDecimal: '1234.567'
+    });
+  });
+
   it('converts `bson.ObjectId` to `{$oid: <_id>}`', function() {
     assert.deepEqual(serialize(_id), {
       $oid: _id.toString()
