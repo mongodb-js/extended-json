@@ -71,7 +71,9 @@ describe('Important integrations we dont want to break', function() {
     ];
 
     before(function(done) {
-      schema = getSchema('test.jeff', docs, function() {
+      getSchema(docs, function(err, result) {
+        assert.equal(err, null);
+        schema = result;
         done();
       });
     });
