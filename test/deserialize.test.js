@@ -8,6 +8,8 @@ describe('Deserialize', function() {
   var bin = bson.Binary(new Buffer(1));
   var ref = bson.DBRef('local.startup_log', _id);
   var refStringId = bson.DBRef('local.startup_log', _id.toString());
+  var code = bson.Code('return true');
+  var codeWithScope = bson.Code('return true', {});
 
   it('converts `{$numberLong: <str>}` to `bson.Long`', function() {
     assert(deserialize({
@@ -47,6 +49,19 @@ describe('Deserialize', function() {
       $binary: bin.buffer.toString('base64')
     }).toString('base64'),
       bin.buffer.toString('base64'));
+  });
+
+  it('converts `{$code: <code>}` to `bson.Code`', function() {
+    assert.equal(deserialize({
+      $code: code.code
+    }).code, code.code);
+  });
+
+  it('converts `{$code: <code>, $scope: <scope>}` to `bson.Code`', function() {
+    assert.equal(deserialize({
+      $code: codeWithScope.code,
+      $scope: codeWithScope.scope
+    }).scope, codeWithScope.scope);
   });
 
   it('converts `{$ref: <namespace>, $id: <string>}` to `bson.DBRef`', function() {

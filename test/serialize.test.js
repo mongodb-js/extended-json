@@ -8,6 +8,8 @@ describe('Serialize', function() {
   var bin = bson.Binary(new Buffer(1));
   var ref = bson.DBRef('local.startup_log', _id);
   var refStringId = bson.DBRef('local.startup_log', _id.toString());
+  var code = bson.Code('return true');
+  var codeWithScope = bson.Code('return true', {});
 
   it('is a passthrough for primitive types', function() {
     assert.equal(serialize('bson'), 'bson');
@@ -57,6 +59,19 @@ describe('Serialize', function() {
     assert.deepEqual(serialize(bin), {
       $binary: bin.buffer.toString('base64'),
       $type: '0'
+    });
+  });
+
+  it('converts `bson.Code` with no scope to `{$code: <code>}`', function() {
+    assert.deepEqual(serialize(code), {
+      $code: code.code
+    });
+  });
+
+  it('converts `bson.Code` with scope to `{$code: <code>, $scope: <scope>}`', function() {
+    assert.deepEqual(serialize(codeWithScope), {
+      $code: codeWithScope.code,
+      $scope: codeWithScope.scope
     });
   });
 
