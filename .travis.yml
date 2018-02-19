@@ -4,7 +4,12 @@ node_js:
   - 5
   - 6
   - 7
-script: npm run-script ci
+  - node
+
+script:
+  - npm run ci
+  - npm test
+
 cache:
   directories:
     - node_modules
