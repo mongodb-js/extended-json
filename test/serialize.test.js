@@ -113,9 +113,18 @@ describe('Serialize', function() {
   });
 
   it('converts `Date` to `{$date: <ISO-8601>}`', function() {
-    var d = new Date();
+    var d = new Date(32535215998999);
     assert.deepEqual(serialize(d), {
       $date: d.toISOString()
+    });
+  });
+
+  it('converts `Date` to `{$date: {$numberLong: <ISO-8601>}}`', function() {
+    var d = new Date(32535215999000);
+    assert.deepEqual(serialize(d), {
+      $date: {
+        $numberLong: '' + d.getTime()
+      }
     });
   });
 

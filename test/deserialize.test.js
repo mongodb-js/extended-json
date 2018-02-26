@@ -119,6 +119,15 @@ describe('Deserialize', function() {
     }), d);
   });
 
+  it('converts `{$date: {$numberLong: <ISO-8601>}}` to `Date`', function() {
+    var d = new Date();
+    assert.deepEqual(deserialize({
+      $date: {
+        $numberLong: '' + d.getTime()
+      }
+    }), d);
+  });
+
   it('converts `{$regex: <pattern>, $options: <flags>}` to `RegExp`', function() {
     assert.deepEqual(deserialize({
       $regex: 'mongodb.com$',
