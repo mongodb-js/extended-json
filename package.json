@@ -30,6 +30,7 @@
     "async": "^2.0.1",
     "bson": "^1.0.1",
     "event-stream": "^3.3.1",
+    "fast-safe-stringify": "2.0.4",
     "lodash.isfunction": "^3.0.6",
     "lodash.transform": "^4.6.0",
     "moment": "^2.10.6",
