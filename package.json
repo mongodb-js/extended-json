@@ -17,31 +17,20 @@
     "extended-json"
   ],
   "scripts": {
-    "fmt": "mongodb-js-fmt",
     "test": "mocha",
     "ci": "npm run check",
     "check": "mongodb-js-precommit"
   },
-  "precommit": [
-    "check"
-  ],
   "dependencies": {
-    "JSONStream": "^1.1.1",
-    "async": "^2.0.1",
-    "bson": "^1.0.1",
-    "event-stream": "^4.0.1",
-    "lodash.isfunction": "^3.0.6",
-    "lodash.transform": "^4.6.0",
-    "moment": "^2.10.6",
-    "raf": "^3.1.0"
+    "async": "^3.1.0",
+    "bson": "github:mongodb/js-bson#fix-dbref-legacy",
+    "moment": "^2.24.0"
   },
   "devDependencies": {
-    "debug": "^2.2.0",
-    "eslint-config-mongodb-js": "^2.2.0",
-    "mocha": "~3.2.0",
-    "mongodb-js-fmt": "^0.0.3",
-    "mongodb-js-precommit": "^0.2.9",
-    "mongodb-schema": "^8.2.1",
-    "pre-commit": "^1.1.1"
+    "debug": "^4.1.1",
+    "eslint-config-mongodb-js": "^5.0.3",
+    "mocha": "~7.0.0",
+    "mongodb-js-precommit": "^2.0.0",
+    "mongodb-schema": "^8.2.5"
   }
 }

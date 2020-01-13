@@ -4,25 +4,29 @@ var bson = require('bson');
 
 /* eslint new-cap:0 */
 describe('Serialize', function() {
-  var _id = bson.ObjectID();
-  var bin = bson.Binary(new Buffer(1));
-  var ref = bson.DBRef('local.startup_log', _id);
-  var refStringId = bson.DBRef('local.startup_log', _id.toString());
-  var code = bson.Code('return true');
-  var codeWithScope = bson.Code('return true', {});
+  var _id = new bson.ObjectID();
+  var bin = new bson.Binary(new Buffer(1));
+  var ref = new bson.DBRef('local.startup_log', _id);
+  var refStringId = new bson.DBRef('local.startup_log', _id.toString());
+  var code = new bson.Code('return true');
+  var codeWithScope = new bson.Code('return true', {});
 
   it('is a passthrough for primitive types', function() {
     assert.equal(serialize('bson'), 'bson');
     assert.deepEqual(serialize([]), []);
-    assert.deepEqual(serialize(1), 1);
+    assert.deepEqual(serialize(1, { relaxed: true }), 1);
     assert.deepEqual(serialize(false), false);
-    assert.deepEqual(serialize({
-      a: 1
-    }), {
-      a: 1
-    });
-    assert.deepEqual(serialize(Infinity), 'Infinity');
-    assert.deepEqual(serialize(-Infinity), '-Infinity');
+    assert.deepEqual(
+      serialize(
+        {
+          a: 1
+        },
+        { relaxed: true }
+      ),
+      {
+        a: 1
+      }
+    );
   });
 
   it('converts `bson.Long` to `{$numberLong: <str>}`', function() {
@@ -92,7 +96,7 @@ describe('Serialize', function() {
   });
 
   it('converts `bson.Timestamp` to `{$timestamp: {t: <low_>, i: <high_>}`', function() {
-    assert.deepEqual(serialize(bson.Timestamp()), {
+    assert.deepEqual(serialize(new bson.Timestamp(0, 0)), {
       $timestamp: {
         t: 0,
         i: 0
@@ -101,39 +105,29 @@ describe('Serialize', function() {
   });
 
   it('converts `bson.MinKey` to `{$minKey: 1}`', function() {
-    assert.deepEqual(serialize(bson.MinKey()), {
+    assert.deepEqual(serialize(new bson.MinKey()), {
       $minKey: 1
     });
   });
 
   it('converts `bson.MaxKey` to `{$maxKey: 1}`', function() {
-    assert.deepEqual(serialize(bson.MaxKey()), {
+    assert.deepEqual(serialize(new bson.MaxKey()), {
       $maxKey: 1
     });
   });
 
   it('converts `Date` to `{$date: <ISO-8601>}`', function() {
     var d = new Date(32535215998999);
-    assert.deepEqual(serialize(d), {
+    assert.deepEqual(serialize(d, { relaxed: true }), {
       $date: d.toISOString()
     });
   });
 
-  it('converts `Date` to `{$date: {$numberLong: <ISO-8601>}}`', function() {
-    var d = new Date(32535215999000);
-    assert.deepEqual(serialize(d), {
-      $date: {
-        $numberLong: '' + d.getTime()
-      }
-    });
-  });
-
   it('converts `RegExp` to `{$regex: <pattern>, $options: <flags>}`', function() {
-    assert.deepEqual(serialize(/mongodb.com$/g),
-      {
-        $regex: 'mongodb.com$',
-        $options: 'g'
-      });
+    assert.deepEqual(serialize(/mongodb.com$/i), {
+      $regex: 'mongodb.com$',
+      $options: 'i'
+    });
   });
 
   it('converts `undefined` to `{$undefined: true}`', function() {

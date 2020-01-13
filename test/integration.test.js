@@ -9,21 +9,25 @@ describe('Important integrations we dont want to break', function() {
     var schema;
     var docs = [
       {
-        _id: BSON.ObjectID('55e6484748f15136d28b6e76')
+        _id: new BSON.ObjectID('55e6484748f15136d28b6e76')
       },
       {
-        _id: BSON.ObjectID('55f0a1ca62510c0b042b59e8'),
+        _id: new BSON.ObjectID('55f0a1ca62510c0b042b59e8'),
         arr1: [1, 2, 3],
         arr2: [true, false],
-        arr3: [{
-          c: 1,
-          d: 2
-        }, {
-          c: 1,
-          e: 3
-        }, {
-          e: 3
-        }],
+        arr3: [
+          {
+            c: 1,
+            d: 2
+          },
+          {
+            c: 1,
+            e: 3
+          },
+          {
+            e: 3
+          }
+        ],
         doc: {
           a: 1,
           b: 2
@@ -31,18 +35,22 @@ describe('Important integrations we dont want to break', function() {
         x: 1
       },
       {
-        _id: BSON.ObjectID('55f0a1ca62510c0b042b59e9'),
+        _id: new BSON.ObjectID('55f0a1ca62510c0b042b59e9'),
         arr1: [1, 2, 3],
         arr2: [true, false],
-        arr3: [{
-          c: 1,
-          d: 2
-        }, {
-          c: 1,
-          e: 3
-        }, {
-          e: 3
-        }],
+        arr3: [
+          {
+            c: 1,
+            d: 2
+          },
+          {
+            c: 1,
+            e: 3
+          },
+          {
+            e: 3
+          }
+        ],
         doc: {
           a: 1,
           b: 2
@@ -50,18 +58,22 @@ describe('Important integrations we dont want to break', function() {
         x: 1
       },
       {
-        _id: BSON.ObjectID('55f0a1ca62510c0b042b59ea'),
+        _id: new BSON.ObjectID('55f0a1ca62510c0b042b59ea'),
         arr1: [1, 2, 3],
         arr2: [true, false],
-        arr3: [{
-          c: 1,
-          d: 2
-        }, {
-          c: 1,
-          e: 3
-        }, {
-          e: 3
-        }],
+        arr3: [
+          {
+            c: 1,
+            d: 2
+          },
+          {
+            c: 1,
+            e: 3
+          },
+          {
+            e: 3
+          }
+        ],
         doc: {
           a: 1,
           b: 2
