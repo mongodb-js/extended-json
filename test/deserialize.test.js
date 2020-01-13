@@ -4,12 +4,12 @@ var bson = require('bson');
 
 /* eslint new-cap:0 */
 describe('Deserialize', function() {
-  var _id = bson.ObjectID();
-  var bin = bson.Binary(new Buffer(1));
-  var ref = bson.DBRef('local.startup_log', _id);
-  var refStringId = bson.DBRef('local.startup_log', _id.toString());
-  var code = bson.Code('return true');
-  var codeWithScope = bson.Code('return true', {});
+  var _id = new bson.ObjectID();
+  var bin = new bson.Binary(new Buffer(1));
+  var ref = new bson.DBRef('local.startup_log', _id);
+  var refStringId = new bson.DBRef('local.startup_log', _id.toString());
+  var code = new bson.Code('return true');
+  var codeWithScope = new bson.Code('return true', {});
 
   it('converts `{$numberLong: <str>}` to `bson.Long`', function() {
     assert(
@@ -113,7 +113,7 @@ describe('Deserialize', function() {
           $i: 0
         }
       }),
-      bson.Timestamp()
+      new bson.Timestamp(0, 0)
     );
   });
 
@@ -122,7 +122,7 @@ describe('Deserialize', function() {
       deserialize({
         $minKey: 1
       }),
-      bson.MinKey()
+      new bson.MinKey()
     );
   });
 
@@ -131,7 +131,7 @@ describe('Deserialize', function() {
       deserialize({
         $maxKey: 1
       }),
-      bson.MaxKey()
+      new bson.MaxKey()
     );
   });
 

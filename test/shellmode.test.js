@@ -9,7 +9,7 @@ describe('Parse from shell mode', function() {
     assert.deepEqual(
       parse('{"_id": ObjectId("53c2b570c15c457669f481f7") }', null, 'shell'),
       {
-        _id: bson.ObjectID('53c2b570c15c457669f481f7')
+        _id: new bson.ObjectID('53c2b570c15c457669f481f7')
       }
     );
   });
@@ -18,7 +18,7 @@ describe('Parse from shell mode', function() {
     assert.deepEqual(
       parse('{_id: ObjectId("53c2b570c15c457669f481f7") }', null, 'shell'),
       {
-        _id: bson.ObjectID('53c2b570c15c457669f481f7')
+        _id: new bson.ObjectID('53c2b570c15c457669f481f7')
       }
     );
   });
@@ -27,7 +27,7 @@ describe('Parse from shell mode', function() {
     assert.deepEqual(
       parse("{'_id': ObjectId('53c2b570c15c457669f481f7') }", null, 'shell'),
       {
-        _id: bson.ObjectID('53c2b570c15c457669f481f7')
+        _id: new bson.ObjectID('53c2b570c15c457669f481f7')
       }
     );
   });
