@@ -74,7 +74,7 @@ describe('Deserialize', function() {
   });
 
   it('converts `{$code: <code>, $scope: <scope>}` to `bson.Code`', function() {
-    assert.equal(
+    assert.deepEqual(
       deserialize({
         $code: codeWithScope.code,
         $scope: codeWithScope.scope
@@ -168,12 +168,23 @@ describe('Deserialize', function() {
   });
 
   it('converts `{$regex: <pattern>, $options: <flags>}` to `RegExp`', function() {
+    console.log(
+      'wtf',
+      deserialize({
+        r: {
+          $regex: 'mongodb.com$',
+          $options: 'i'
+        }
+      }).r
+    );
     assert.deepEqual(
       deserialize({
-        $regex: 'mongodb.com$',
-        $options: 'g'
-      }).toString(),
-      '/mongodb.com$/g'
+        r: {
+          $regex: 'mongodb.com$',
+          $options: 'i'
+        }
+      }).r.toString(),
+      '/mongodb.com$/i'
     );
   });
 

@@ -123,15 +123,6 @@ describe('Serialize', function() {
     });
   });
 
-  it('converts `Date` to `{$date: {$numberLong: <ISO-8601>}}`', function() {
-    var d = new Date(32535215999000);
-    assert.deepEqual(serialize(d, { relaxed: false }), {
-      $date: {
-        $numberLong: '' + d.getTime()
-      }
-    });
-  });
-
   it('converts `RegExp` to `{$regex: <pattern>, $options: <flags>}`', function() {
     assert.deepEqual(serialize(/mongodb.com$/i), {
       $regex: 'mongodb.com$',
