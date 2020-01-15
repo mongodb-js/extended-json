@@ -28,7 +28,7 @@
   "dependencies": {
     "JSONStream": "^1.1.1",
     "async": "^2.0.1",
-    "bson": "^1.0.1",
+    "bson": "^4.0.3",
     "event-stream": "^4.0.1",
     "lodash.isfunction": "^3.0.6",
     "lodash.transform": "^4.6.0",
