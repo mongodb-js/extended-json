@@ -1,15 +1,11 @@
 sudo: false
+dist: bionic
 language: node_js
 node_js:
-  - 5
-  - 6
-  - 7
-  - node
-
+  - 12.4.0
+install:
+  - npm ci
 script:
-  - npm run ci
+  - npm run check
   - npm test
-
-cache:
-  directories:
-    - node_modules
+cache: npm
