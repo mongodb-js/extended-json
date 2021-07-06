@@ -35,6 +35,6 @@
     "eslint-config-mongodb-js": "^5.0.3",
     "mocha": "~7.0.0",
     "mongodb-js-precommit": "^2.2.0",
-    "mongodb-schema": "^8.2.1"
+    "mongodb-schema": "^9.0.0"
   }
 }
